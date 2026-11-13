@@ -4,68 +4,92 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Medical chatbot AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <main class="app">
-      <header>
-        <div>
-          <h1>✚ Medical chatbot AI</h1>
-          <p>Medical education • Knowledge base + web research</p>
+    <div class="shell">
+      <aside class="side">
+        <div class="brand">
+          <span class="logo">✚</span>
+          <div>
+            <h1>Medical chatbot AI</h1>
+            <p>Medical education</p>
+          </div>
         </div>
-        <span id="status">Checking...</span>
-      </header>
-      <div class="notice">
-        Educational guidance only. Not a diagnosis. For severe symptoms, contact
-        emergency services.
-      </div>
-      <section id="messages" aria-live="polite">
-        <article class="bot">
-          Hello! Ask a medical question, upload an image, or use the microphone.
-          I'll cite available sources and explain uncertainty.
-        </article>
-      </section>
-      <div id="preview" hidden>
-        <img id="thumbnail" alt="Selected image" /><button
-          id="remove"
-          type="button"
-        >
-          Remove image ×
-        </button>
-      </div>
-      <form id="chatForm">
-        <textarea
-          id="message"
-          placeholder="Describe your symptoms or ask a question..."
-          rows="2"
-          required
-          maxlength="4000"
-        ></textarea>
-        <div class="toolbar">
-          <label class="action" for="image">📎 Image</label
-          ><input
-            id="image"
-            type="file"
-            accept="image/png,image/jpeg,image/webp"
-            hidden
-          /><button class="action" id="camera" type="button">📷 Camera</button
-          ><button class="action" id="mic" type="button">🎤 Voice</button
-          ><button class="action" id="listen" type="button">
-            🔊 Read answer</button
-          ><button id="send" type="submit">Send ➜</button>
+
+        <span id="status" class="status">Checking...</span>
+
+        <ul class="facts">
+          <li>Answers from your knowledge base and web research</li>
+          <li>Sources listed under each answer</li>
+          <li>Ask by text, voice, photo or camera</li>
+        </ul>
+
+        <div class="notice">
+          <strong>Educational guidance only.</strong> Not a diagnosis. For
+          severe symptoms, contact emergency services.
         </div>
-      </form>
-      <details>
-        <summary>API access (optional)</summary>
-        <input id="token" type="password" placeholder="API_TOKEN from .env" />
-      </details>
-      <video id="video" autoplay playsinline hidden></video>
-      <div id="cameraActions" hidden>
-        <button id="snap" type="button">Capture</button
-        ><button id="closeCamera" type="button">Close camera</button>
-      </div>
-      <canvas id="canvas" hidden></canvas>
-    </main>
+
+        <details>
+          <summary>API access (optional)</summary>
+          <input id="token" type="password" placeholder="API_TOKEN from .env" />
+        </details>
+      </aside>
+
+      <main class="chat">
+        <section id="messages" aria-live="polite">
+          <article class="bot">
+            Hello! Ask a medical question, upload an image, or use the
+            microphone. I'll cite available sources and explain uncertainty.
+          </article>
+        </section>
+
+        <div class="dock">
+          <div id="preview" hidden>
+            <img id="thumbnail" alt="Selected image" />
+            <button id="remove" type="button">Remove image ×</button>
+          </div>
+
+          <video id="video" autoplay playsinline hidden></video>
+          <div id="cameraActions" hidden>
+            <button id="snap" type="button">Capture</button>
+            <button id="closeCamera" type="button">Close camera</button>
+          </div>
+          <canvas id="canvas" hidden></canvas>
+
+          <form id="chatForm">
+            <textarea
+              id="message"
+              placeholder="Describe your symptoms or ask a question..."
+              rows="2"
+              required
+              maxlength="4000"
+            ></textarea>
+            <div class="toolbar">
+              <label class="action" for="image">📎 Image</label>
+              <input
+                id="image"
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                hidden
+              />
+              <button class="action" id="camera" type="button">📷 Camera</button>
+              <button class="action" id="mic" type="button">🎤 Voice</button>
+              <button class="action" id="listen" type="button">
+                🔊 Read answer
+              </button>
+              <button id="send" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
     <script src="/static/script.js"></script>
   </body>
 </html>
