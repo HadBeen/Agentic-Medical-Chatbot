@@ -12,15 +12,11 @@ model = SentenceTransformer(MODEL_NAME)
 # pc = Pinecone(api_key="PINECONE_API_KEY")
 
 
-
-
 @lru_cache()
 def clients():
     if not settings.pinecone_api_key:
         raise ValueError("Pinecone API key must be set in the environment variables.")
     return Pinecone(api_key=settings.pinecone_api_key)
-
-
 
 
 def ensure_index():
