@@ -21,8 +21,14 @@ class Settings(BaseSettings):
     pinecone_index: str = 'medical-agent-demo'
     api_token: str = ''
     allowed_origins: str = 'http://localhost:8000,http://127.0.0.1:8000'
+
+    # Ollama (local models)
+    ollama_base_url: str = 'http://localhost:11434/v1'   # OpenAI-compatible endpoint, used in main.py
+    ollama_host: str = 'http://localhost:11434'          # native endpoint, used by langchain-ollama
+    ollama_chat_model: str = 'llama3.1'
+    ollama_vision_model: str = 'llama3.2-vision'
+    ollama_embed_model: str = 'nomic-embed-text'
+
     model_config = SettingsConfigDict(env_file='.env', extra='ignore')
-
-
 
 settings = Settings()
