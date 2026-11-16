@@ -20,9 +20,9 @@ The system retrieves relevant information from the Gale Encyclopedia of Medicine
 | Category | Technologies |
 |---|---|
 | Language | Python |
-| AI & LLMs | OpenAI API, Whisper |
+| AI & LLMs | Ollama , Whisper |
 | Agent Orchestration | LangGraph, LangChain |
-| RAG & Embeddings | OpenAI Embeddings |
+| RAG & Embeddings | SentenceTransformers Embeddings |
 | Vector Database | Pinecone |
 | External Search | Tavily |
 | Backend | FastAPI, Uvicorn |
