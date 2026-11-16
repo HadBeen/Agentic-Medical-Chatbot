@@ -1,6 +1,6 @@
 from functools import lru_cache
 from pinecone import Pinecone, ServerlessSpec
-from config import settings
+from app.config import settings
 
 from sentence_transformers import SentenceTransformer
 
@@ -9,7 +9,6 @@ DIMENSION = 768
 INDEX_NAME = "medical-bot"
 
 model = SentenceTransformer(MODEL_NAME)
-# pc = Pinecone(api_key="PINECONE_API_KEY")
 
 
 @lru_cache()
@@ -21,7 +20,7 @@ def clients():
 
 def ensure_index():
     pc = clients()
-    pc.delete_index(settings.pinecone_index)
+    # pc.delete_index(settings.pinecone_index)
     if not pc.has_index(settings.pinecone_index):
         pc.create_index(name=settings.pinecone_index, dimension=DIMENSION, metric='cosine', spec=ServerlessSpec(cloud='aws', region='us-east-1'))
     return pc.Index(settings.pinecone_index)
