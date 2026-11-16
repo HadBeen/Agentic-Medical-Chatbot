@@ -27,7 +27,6 @@ class Settings(BaseSettings):
     ollama_host: str = 'http://localhost:11434'          
     ollama_chat_model: str = 'llama3.1'
     ollama_vision_model: str = 'llama3.2-vision'
-    ollama_embed_model: str = 'nomic-embed-text'
 
     model_config = SettingsConfigDict(env_file='.env', extra='ignore')
 
