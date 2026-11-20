@@ -23,10 +23,10 @@ class Settings(BaseSettings):
     allowed_origins: str = 'http://localhost:8000,http://127.0.0.1:8000'
 
     # Ollama (local models)
-    ollama_base_url: str = 'http://localhost:11434/v1'   
+    ollama_base_url: str = 'http://127.0.0.1:11434/v1'   
     ollama_host: str = 'http://localhost:11434'          
     ollama_chat_model: str = 'llama3.1'
-    ollama_vision_model: str = 'llama3.2-vision'
+    ollama_vision_model: str = 'moondream'
 
     model_config = SettingsConfigDict(env_file='.env', extra='ignore')
 
