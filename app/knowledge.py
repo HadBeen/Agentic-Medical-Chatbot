@@ -9,6 +9,7 @@ DIMENSION = 768
 INDEX_NAME = "medical-bot"
 
 model = SentenceTransformer(MODEL_NAME)
+# pc = Pinecone(api_key="PINECONE_API_KEY")
 
 
 @lru_cache()
